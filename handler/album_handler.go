@@ -6,11 +6,11 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func getAlbums(c *gin_Context){
+func GetAlbums(c *gin.Context){
 	c.JSON(http.StatusOK ,models.Albums)
 }
 
-func postAlbums(c *gin_Context){
+func PostAlbums(c *gin.Context){
 	var newAlbum models.Album
 
 	if err := c.BindJSON(&newAlbum); err!=nil{
@@ -21,7 +21,7 @@ func postAlbums(c *gin_Context){
 	c.JSON(http.StatusCreated, newAlbum)
 }
 
-func getAlbumByID(c *gin_Context){
+func GetAlbumByID(c *gin.Context){
 	id := c.Param("id")
 
 	for _ ,album := range models.Albums{
