@@ -5,8 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func RegisterRoutes(router *gin.Engine){
-	router.GET("/albums", handler.GetAlbums)
-	router.POST("/albums", handler.PostAlbums)
-	router.GET("/albums/:id", handler.GetAlbumByID)
+func RegisterRoutes(r *gin.Engine, albumHandler *handler.AlbumHandler) {
+	r.GET("/albums", albumHandler.GetAlbums)
+	r.POST("/albums", albumHandler.CreateAlbum)
 }
